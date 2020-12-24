@@ -1,0 +1,15 @@
+baseURL = "http://anjalichaturvedi.github.io/"
+languageCode = "en-us"
+title = "Personal Site"
+publishDir = "IC1101Virgo.github.io"
+
+[permalinks]
+blog = "/:filename/"
+
+[params]
+dateFormat = "Jan 2, 2006"
+author = "Anjali Chaturvedi"
+motto = "Go, Ruby, Typescript and cheap poetry"
+
+[taxonomies]
+tag = "tags"
