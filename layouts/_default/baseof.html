@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {{ $title := print .Title " | " .Site.Title }}
+  {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
+  <title>{{ $title }}</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Anjali Chaturvedi">
+  <meta name="description" content="Personal website with programming projects and contact information">
+  <meta name="theme-color" content="#b3e3f5">
+  {{ hugo.Generator }}
+  <link rel="icon" type="image/png" href="{{ "img/favicon.png" | relURL }}" sizes="32x32" />
+  <link rel="stylesheet" href="{{ "css/styles.css" | relURL }}">
+</head>
+
+<body>
+  <header>
+    <a href="/" title="home">
+      <img src="{{ "img/logo.png" | relURL }}" class="logo" alt="Personal logo">
+    </a>
+    <div class="name">
+      <a href="/" title="home">
+        <h1>{{ .Site.Params.Author }}</h1>
+        <h2>{{ .Site.Params.Motto }}</h2>
+      </a>
+      {{ if not .IsHome }}<h3>{{ .Title }}</h3>{{ end }}
+    </div>
+  </header>
+  <hr class="top_hr">
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+  <hr class="bottom_hr">
+  <footer>
+    <ul class="three-grid" role="list" aria-roledescription="Contact links">
+      <li>
+        <a href="https://github.com/IC1101Virgo" title="GitHub" role="listitem"
+          aria-roledescription="GitHub profile">
+          <img src="{{ "img/github.svg" | relURL }}" class="small_icon" alt="GitHub">
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/anjali-chaturvedi-b081a5199/" title="LinkedIn" role="listitem"
+          aria-roledescription="LinkedIn profile">
+          <img src="{{ "img/linkedin.svg" | relURL }}" class="small_icon" alt="LinkedIn">
+        </a>
+      </li>
+      <li>
+        <a href="nova.anjali@gmail.com" title="Contact me" role="listitem"
+          aria-roledescription="Personal email">
+          <img src="{{ "img/email.svg" | relURL }}" class="small_icon" alt="Contact me">
+        </a>
+      </li>
+    </ul>
+  </footer>
+</body>
+
+</html>

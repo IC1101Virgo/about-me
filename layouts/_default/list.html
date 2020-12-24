@@ -1,0 +1,29 @@
+{{ define "main" }}
+
+<ul class="four-grid" role="list" aria-roledescription="Blog Articles">
+
+  {{ range .Pages.ByPublishDate.Reverse }}
+  <li class="project_box" role="listitem" aria-roledescription="Article">
+    <center>
+      <a href="{{ .RelPermalink }}" title="{{ .Title }}">
+
+        <img class="icon" alt="{{ .Title }} logo" {{ if .Params.Story }} src="{{ "img/blog_tech.svg" | relURL }}"
+          {{ else }} src="{{ "img/blog_story.svg" | relURL }}" {{ end }}>
+        <p>{{ .Title }}</p>
+      </a>
+      {{ partial "date-and-tags.html" . }}
+    </center>
+  </li>
+  {{ end }}
+
+  <li class="project_box" role="listitem" aria-roledescription="Tags">
+    <center>
+      <a href="/tags" title="tags">
+        <img class="icon" alt="tags logo" src="{{ "img/red_tag.svg" | relURL }}">
+        <p>tags</p>
+      </a>
+    </center>
+  </li>
+</ul>
+
+{{ end }}
